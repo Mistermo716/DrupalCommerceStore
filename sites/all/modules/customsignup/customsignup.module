@@ -10,11 +10,11 @@ function customsignup_block_info(){
     $blocks['customsignup'] = array(
         'title' => "Account Registration",
         'description' => 'Custom Registration Form',
-        'page callback' => 'drupal_get_form',
-        'page arguments' => array('customsignup_showForm'),
-        'access callback' => 'user_access',
-        'access arguments' => array('access content'),
-        'type' => MENU_NORMAL_ITEM
+        // 'page callback' => 'drupal_get_form',
+        // 'page arguments' => array('customsignup_showForm'),
+        // 'access callback' => 'user_access',
+        // 'access arguments' => array('access content'),
+        // 'type' => MENU_NORMAL_ITEM
     );
 
     return $blocks;

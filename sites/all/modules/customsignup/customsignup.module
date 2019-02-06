@@ -79,6 +79,12 @@ function customsignup_form_validate($form, &$form_state){
     $result = $queryEmail->fetch();
     $result2 = $queryUsername->fetch();
 
+    if($result){
+        form_set_error('email', t('That email already has an account'));
+    }
+    if($result2){
+        form_set_error('username', t('That username already has an account'));
+    }
     if($result || $result2){
         return FALSE;
     }

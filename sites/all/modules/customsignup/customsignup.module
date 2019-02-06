@@ -47,7 +47,7 @@ function customsignup_showForm(){
     );
    
     $form['password'] = array(
-        '#type' => 'textfield',
+        '#type' => 'password',
         '#title' => t('Password'),
         '#default_value' => '',
         '#size' => 30,

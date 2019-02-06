@@ -79,7 +79,7 @@ function customsignup_form_validate($form, &$form_state){
     
     $query = db_select('users', 'u')
     ->fields('u', array('uid'))
-    ->condition('u.name', $name)
+    ->condition('u.mail', $form_state['values']['email'])
     ->execute();
     $result = $query->fetch();
 

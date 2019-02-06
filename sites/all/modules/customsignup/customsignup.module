@@ -68,13 +68,18 @@ function customsignup_showForm(){
 //will validate the field email to determine if an int was passed
 function customsignup_form_validate($form, &$form_state){
     
-    $query = db_select('users', 'u')
+    $queryEmail = db_select('users', 'u')
     ->fields('u', array('uid'))
     ->condition('u.mail', $form_state['values']['email'])
     ->execute();
-    $result = $query->fetch();
+    $queryUsername = db_select('users', 'u')
+    ->fields('u', array('uid'))
+    ->condition('u.name', $form_state['values']['username'])
+    ->execute();
+    $result = $queryEmail->fetch();
+    $result2 = $queryUsername->fetch();
 
-    if($result){
+    if($result || $result2){
         return FALSE;
     }
     return TRUE;
@@ -85,7 +90,7 @@ function customsignup_showForm_submit($form, &$form_state){
     //calling validate function before proceeding to submit to database
     $validated = customsignup_form_validate($form, $form_state);
     if($validated == FALSE){
-        form_set_error('email', t('That email already has an account'));
+        form_set_error('email', t('That username or email already has an account'));
     }
     if($validated == TRUE){
         $new_user = array(

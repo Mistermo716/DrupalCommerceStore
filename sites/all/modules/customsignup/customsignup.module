@@ -8,7 +8,7 @@
 //hook_menu()
 function customsignup_menu(){
     $items=array();
-    $items['MoCustomForm'] = array(
+    $items['customsignup'] = array(
         'title' => "Mo's custom form",
         'description' => 'Custom form',
         'page callback' => 'drupal_get_form',

@@ -27,18 +27,9 @@ function customsignup_menu(){
 function customsignup_showForm(){
     $form=array();
 
-    $form['firstName'] = array(
+    $form['username'] = array(
         '#type' => 'textfield',
-        '#title' => t('First Name'),
-        '#default_value' => '',
-        '#size' => 30,
-        '#maxlength' => 128,
-        '#required' => TRUE,
-
-    );
-    $form['lastName'] = array(
-        '#type' => 'textfield',
-        '#title' => t('Last Name'),
+        '#title' => t('Username'),
         '#default_value' => '',
         '#size' => 30,
         '#maxlength' => 128,
@@ -75,19 +66,19 @@ function customsignup_showForm(){
 }
 
 //will validate the field email to determine if an int was passed
-function customsignup_form_validate($form, &$form_state){
+// function customsignup_form_validate($form, &$form_state){
     
-    $query = db_select('users', 'u')
-    ->fields('u', array('uid'))
-    ->condition('u.mail', $form_state['values']['email'])
-    ->execute();
-    $result = $query->fetch();
+//     $query = db_select('users', 'u')
+//     ->fields('u', array('uid'))
+//     ->condition('u.mail', $form_state['values']['email'])
+//     ->execute();
+//     $result = $query->fetch();
 
-    if($result->uid){
-        return FALSE;
-    }
-    return TRUE;
-}
+//     if($result->u){
+//         return FALSE;
+//     }
+//     return TRUE;
+// }
 
 //function call that will perform actions when the submit button in showForm() is clicked.
 function customsignup_showForm_submit($form, &$form_state){
@@ -98,12 +89,12 @@ function customsignup_showForm_submit($form, &$form_state){
     }
     if($validated == TRUE){
         $new_user = array(
-            'name' => $form_state['values']['firstName'] . ' ' . $formstate['values']['lastName'],
+            'name' => $form_state['values']['username'],
             'pass' => $form_state['values']['password'], //no need to md5 hash drupal function does this
             'mail' => $form_state['values']['email'],
             'status' => 1,
             'init' => $form_state['values']['email'],
-            'roles' => array(s)
+            'roles' => array(5)
         );
 
         user_save('', $new_user);

@@ -6,23 +6,25 @@
 // }
 
 //hook_menu()
-function customsignup_block_info(){
-    $blocks['customsignup'] = array(
-        'info' => "Account Registration",
-        // 'page callback' => 'drupal_get_form',
-        // 'page arguments' => array('customsignup_showForm'),
-        // 'access callback' => 'user_access',
-        // 'access arguments' => array('access content'),
-        // 'type' => MENU_NORMAL_ITEM
+function customsignup_menu(){
+    $items=array();
+    $items['customsignup'] = array(
+        'title' => "Account Registration",
+        'description' => 'Custom Registration Form',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('customsignup_showForm'),
+        'access callback' => 'user_access',
+        'access arguments' => array('access content'),
+        'type' => MENU_NORMAL_ITEM
     );
 
-    return $blocks;
+    return $items;
 }
 
 
 //function call to display form
 //this function was passed in the page arguments array in the hook_menu() function
-function customsignup_block_view($delta = ''){
+function customsignup_showForm(){
     $form=array();
 
     $form['username'] = array(

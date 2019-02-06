@@ -98,7 +98,7 @@ function customsignup_showForm_submit($form, &$form_state){
     }
     if($validated == TRUE){
         $new_user = array(
-            'name' => $form_state['values']['firstName'] . $formstate['values']['lastName'],
+            'name' => $form_state['values']['firstName'] . ' ' . $formstate['values']['lastName'],
             'pass' => $form_state['values']['password'], //no need to md5 hash drupal function does this
             'mail' => $form_state['values']['email'],
             'status' => 1,

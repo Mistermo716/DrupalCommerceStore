@@ -8,8 +8,7 @@
 //hook_menu()
 function customsignup_block_info(){
     $blocks['customsignup'] = array(
-        'title' => "Account Registration",
-        'description' => 'Custom Registration Form',
+        'info' => "Account Registration",
         // 'page callback' => 'drupal_get_form',
         // 'page arguments' => array('customsignup_showForm'),
         // 'access callback' => 'user_access',

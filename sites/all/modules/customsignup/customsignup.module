@@ -95,9 +95,6 @@ function customsignup_form_validate($form, &$form_state){
 function customsignup_showForm_submit($form, &$form_state){
     //calling validate function before proceeding to submit to database
     $validated = customsignup_form_validate($form, $form_state);
-    if($validated == FALSE){
-        form_set_error('email', t('That username or email already has an account'));
-    }
     if($validated == TRUE){
         $new_user = array(
             'name' => $form_state['values']['username'],

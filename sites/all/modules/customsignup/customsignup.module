@@ -6,11 +6,10 @@
 // }
 
 //hook_menu()
-function customsignup_menu(){
-    $items=array();
-    $items['customsignup'] = array(
-        'title' => "Mo's custom form",
-        'description' => 'Custom form',
+function customsignup_block_info(){
+    $blocks['customsignup'] = array(
+        'title' => "Account Registration",
+        'description' => 'Custom Registration Form',
         'page callback' => 'drupal_get_form',
         'page arguments' => array('customsignup_showForm'),
         'access callback' => 'user_access',
@@ -18,7 +17,7 @@ function customsignup_menu(){
         'type' => MENU_NORMAL_ITEM
     );
 
-    return $items;
+    return $blocks;
 }
 
 

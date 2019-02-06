@@ -22,7 +22,7 @@ function customsignup_block_info(){
 
 //function call to display form
 //this function was passed in the page arguments array in the hook_menu() function
-function customsignup_showForm(){
+function customsignup_block_view($delta = ''){
     $form=array();
 
     $form['username'] = array(

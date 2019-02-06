@@ -74,7 +74,7 @@ function customsignup_form_validate($form, &$form_state){
     ->execute();
     $result = $query->fetch();
 
-    if($result->u){
+    if($result){
         return FALSE;
     }
     return TRUE;

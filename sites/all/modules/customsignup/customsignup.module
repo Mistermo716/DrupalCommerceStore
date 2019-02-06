@@ -9,7 +9,7 @@
 function customsignup_menu(){
     $items=array();
     $items['customsignup'] = array(
-        'title' => "Account Registration",
+        'title' => "Sign Up",
         'description' => 'Custom Registration Form',
         'page callback' => 'drupal_get_form',
         'page arguments' => array('customsignup_showForm'),
